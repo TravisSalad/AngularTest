@@ -1,7 +1,13 @@
-<h1 class="col-md-6">Seattle, WA</h1>
+<div class="col-md-6">
+  <h1>Seattle, WA</h1>
+  <input type="text"></input>
+  <p>Coordinates: {{map.center.latitude}}, {{map.center.longitude}}</p>
+  <p>{{map.zoom}}</p>
+</div>
 
-<ui-gmap-google-map class="col-md-6" center="map.center" zoom="map.zoom">
+<ui-gmap-google-map class="col-md-6" center="map.center" zoom="map.zoom" options="options">
 </ui-gmap-google-map>
+
 
 
 <!-- <div ng-app class="jumbotron" ng-controller"MainCtrl">

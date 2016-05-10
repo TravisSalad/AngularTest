@@ -9,7 +9,7 @@
  */
 
  angular.module('angularTestApp')
-  .controller('MainCtrl', function($scope){
+  .controller('MainCtrl', function($scope, uiGmapGoogleMapApi){
     $scope.map = {
       center: {
         latitude: 47.6062,
@@ -17,16 +17,9 @@
       },
       zoom: 8,
     };
-  });
-
-// angular.module('angularTestApp')
-//   .controller('MainCtrl', function ($scope, current) {
-//     $scope.current = current.query();
-//
-//
-//     $scope.refreshCurrent = function(){
-//         $scope.current = current.query({
-//             location: $scope.location
-//         });
-//     };
-//   });
+    $scope.options = {
+      scrollwheel: false
+    };
+    uiGmapGoogleMapApi.then(function() {
+    });
+});

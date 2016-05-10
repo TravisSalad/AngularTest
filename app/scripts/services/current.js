@@ -9,8 +9,6 @@
  */
 
 
-
-
 // angular.module('angularTestApp')
 //   .factory('current', function ($resource) {
 //     // Service logic
