@@ -2,33 +2,30 @@
   <div class="col-md-6">
     <h1>Seattle, WA</h1>
 
-
     <div id="search" ng-model="location"></div>
-    <button class="btn btn-lg btn-primary" ng-click="findPlaces()">Find City</button>
-    <p>{{location}}</p>
+      <button class="btn btn-primary" ng-click="findPlaces()">Find Place</button>
+      <button class="btn btn-primary" ng-click="addPlaces()">Add Place</button>
+      <p>{{placesFound.result.geometry.location.lat}}</p>
+      <p>{{placesFound.result.geometry.location.lng}}</p>
+      <p>{{placesFound.result.name}}</p>
+      <p>{{placesFound.result.formatted_address}}</p>
 
-    <p>Coordinates: {{map.center.latitude}}, {{map.center.longitude}}</p>
-    <p>{{map.zoom}}</p>
-  </div>
+      <ul>
+        <li>{{placesFound.result.name}}</li>
+      </ul>
+</div>
+
 
   <script id="searchbox.tpl.html" type="text/ng-template">
     <input type="text" placeholder="Search">
   </script>
 
-  <ui-gmap-google-map class="col-md-6" center="map.center" zoom="map.zoom" options="options">
+<div cass="map-container col-md-6">
+  <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
     <ui-gmap-search-box parentdiv="'search'" template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
+    <ui-gmap-marker idKey="1" coords="map.center" events="searchbox.events"></ui-gmap-marker>
   </ui-gmap-google-map>
-
-  <p>{{placesID}}</p>
-
-  <p>{{placesFound.result.geometry.location.lat}}</p>
-  <p>{{placesFound.result.geometry.location.lng}}</p>
-  <p>{{placesFound.result.name}}</p>
-  <p>{{placesFound.result.formatted_address}}</p>
-
-  <ul>
-    <li>{{placesFound.result.name}}</li>
-  </ul>
+</div>
 
 
 </div>
