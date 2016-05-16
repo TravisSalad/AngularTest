@@ -9,17 +9,38 @@
  */
 
  angular.module('angularTestApp')
-  .controller('MainCtrl', function($scope, uiGmapGoogleMapApi){
-    $scope.map = {
-      center: {
-        latitude: 47.6062,
-        longitude: -122.3321
-      },
-      zoom: 8,
+ .controller('MainCtrl', ['$scope', '$log', 'uiGmapGoogleMapApi', 'current', function ($scope, $log, GoogleMapApi, current) {
+     angular.extend($scope, {
+       map: {
+         center: {
+           latitude: 40.1451,
+           longitude: -99.6680
+         },
+         zoom: 8
+       },
+       searchbox: {
+         template:'searchbox.tpl.html',
+         events:{
+              places_changed: function(searchBox) {
+              var location = searchBox.getPlaces();
+              $scope.placesID = location[0].place_id;
+           }
+         }
+       },
+       options: {
+         scrollwheel: false
+       }
+     });
+
+     $scope.placesFound = current.query();
+
+     $scope.findPlaces = function(){
+       $scope.placesFound = current.query({
+         placeID: $scope.placesID
+      });
     };
-    $scope.options = {
-      scrollwheel: false
-    };
-    uiGmapGoogleMapApi.then(function() {
-    });
-});
+
+     GoogleMapApi.then(function(maps) {
+       maps.visualRefresh = true;
+     });
+ }]);
