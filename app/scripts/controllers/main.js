@@ -18,6 +18,10 @@
          },
          zoom: 12
        },
+       coords: {
+         latitude: {},
+         longitude: {}
+       },
        searchbox: {
          template:'searchbox.tpl.html',
          events:{
@@ -31,13 +35,15 @@
              $scope.placesFound = current.query({
                 placeID: $scope.placesID
               });
-
               $scope.map = {
                 "center": {
                   "latitude": location[0].geometry.location.lat(),
                   "longitude": location[0].geometry.location.lng()
-                 },
-                "zoom": 12
+                 }
+              };
+              $scope.coords = {
+                "latitude": location[0].geometry.location.lat(),
+                "longitude": location[0].geometry.location.lng()
               };
             };
 
@@ -50,12 +56,16 @@
                  },
                 "zoom": 12
               };
+              $scope.coords = {
+                "latitude": location[0].geometry.location.lat(),
+                "longitude": location[0].geometry.location.lng()
+              };
             };
 
 
           }
-         }
-      },
+        }
+       },
        options: {
          scrollwheel: false
        }

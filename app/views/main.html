@@ -7,17 +7,17 @@
 
         <div id="search" ng-model="location"></div><br>
         <button class="btn btn-primary btn-find" ng-click="findPlaces()">Search for places to visit</button><br><br>
-        <button class="btn btn-primary btn-find" ng-click="addPlaces()">Add place to bucket list</button>
-        <div class="text-left">
+        <button class="btn btn-primary btn-find" ng-click="addPlaces()">Add place to bucket list</button><br><br>
+        <div class="saved-places text-left">
           <p>{{placesFound.result.geometry.location.lat}}</p>
           <p>{{placesFound.result.geometry.location.lng}}</p>
           <p>{{placesFound.result.name}}</p>
           <p>{{placesFound.result.formatted_address}}</p>
+          <ul class="text-left">
+            <li>{{placesFound.result.name}}</li>
+          </ul>
         </div>
 
-        <ul class="text-left">
-          <li>{{placesFound.result.name}}</li>
-        </ul>
         <script id="searchbox.tpl.html" type="text/ng-template">
           <input type="text" placeholder="Search by City, State, Location..." style="width: 70%;">
         </script>
@@ -27,7 +27,7 @@
       <div cass="map-container">
         <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
           <ui-gmap-search-box parentdiv="'search'" template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
-          <ui-gmap-marker idKey="1" coords="map.center" events="searchbox.events"></ui-gmap-marker>
+          <ui-gmap-marker idKey="1" coords="coords" events="searchbox.events"></ui-gmap-marker>
         </ui-gmap-google-map>
       </div>
     </div>
