@@ -31,6 +31,7 @@
              $scope.placesFound = current.query({
                 placeID: $scope.placesID
               });
+
               $scope.map = {
                 "center": {
                   "latitude": location[0].geometry.location.lat(),

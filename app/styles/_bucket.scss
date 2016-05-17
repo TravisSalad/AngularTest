@@ -2,8 +2,28 @@ html,
 body {
   height: 100%;
 }
+
+.content {
+  padding: 0;
+  h1{
+    padding: 20px;
+  }
+}
+
+.container,
+.view-container,
+.mainn,
+.app-container,
+.map-canvas {
+  height: 100%;
+}
+
 .angular-google-map-container {
-  height: 500px;
+  height: 100%; width: 100%; position: absolute; top: 0; left: 0;
+}
+
+.btn-find {
+  width: 70%;
 }
 
 li {
