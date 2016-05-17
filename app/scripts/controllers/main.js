@@ -16,7 +16,7 @@
            latitude: 47.6062095,
            longitude: -122.3320708
          },
-         zoom: 9
+         zoom: 12
        },
        searchbox: {
          template:'searchbox.tpl.html',
@@ -37,7 +37,7 @@
                   "latitude": location[0].geometry.location.lat(),
                   "longitude": location[0].geometry.location.lng()
                  },
-                "zoom": 9
+                "zoom": 12
               };
             };
 
@@ -48,7 +48,7 @@
                   "latitude": location[0].geometry.location.lat(),
                   "longitude": location[0].geometry.location.lng()
                  },
-                "zoom": 9
+                "zoom": 12
               };
             };
 
