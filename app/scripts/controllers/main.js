@@ -36,10 +36,37 @@
                   placeID: $scope.placesID
                 });
 
-                $scope.$storage = $localStorage;
-                $localStorage.name = location[0].name;
-                $localStorage.lat = location[0].geometry.location.lat();
-                $localStorage.lng = location[0].geometry.location.lng();
+                var placeData = {
+                  'name': location[0].name,
+                  'lat': location[0].geometry.location.lat(),
+                  'lng': location[0].geometry.location.lng()
+                };
+
+                if (!$localStorage.savedCities){
+                    $localStorage.savedCities = [placeData];
+                } else {
+                    // we have already saved some cities.
+                    // check to make sure we haven't already saved the current city.
+                var save = true; // initialize the save decision variable.
+                    // use this loop to check if we've already saved the city.
+                for (var i = 0; i < $localStorage.savedCities.length; i++){
+                    if ($localStorage.savedCities[i].name === placeData.name){
+                    //this is a duplicate, so don't save
+                    save = false;
+                    }
+                  }
+                if (save === true){
+                    $localStorage.savedCities.push(placeData);
+                } else {
+                    console.log('city already saved');
+                    }
+                }
+
+
+
+                console.log($scope.storage.savedCities);
+
+
 
                 $scope.map = {
                   center: {
@@ -76,4 +103,8 @@
          scrollwheel: false
        }
      });
+     $scope.storage = $localStorage;
+
+     console.log($scope.storage.savedCities);
+
  }]);
