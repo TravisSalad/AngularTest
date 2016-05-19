@@ -29,18 +29,17 @@
              var location = searchBox.getPlaces();
              $scope.placesID = location[0].place_id;
 
-
-
              $scope.addPlaces = function(){
 
-              //  $scope.placesFound = current.query({
-              //     placeID: $scope.placesID
-              //   });
 
-                var placeData = {
-                  'name': location[0].name,
-                  'lat': location[0].geometry.location.lat(),
-                  'lng': location[0].geometry.location.lng()
+               var name = location[0].name;
+               var lat = location[0].geometry.location.lat();
+               var lng = location[0].geometry.location.lng();
+
+               var placeData = {
+                  'name': name,
+                  'lat': lat,
+                  'lng': lng
                 };
 
                 if (!$localStorage.savedCities){
