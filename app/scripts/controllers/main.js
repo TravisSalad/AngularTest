@@ -92,5 +92,6 @@
      });
 
      $scope.storage = $localStorage;
+     console.log($scope.storage);
 
  }]);
