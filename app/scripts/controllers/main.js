@@ -32,6 +32,7 @@
 
 
              $scope.addPlaces = function(){
+
                $scope.placesFound = current.query({
                   placeID: $scope.placesID
                 });
@@ -62,18 +63,13 @@
                     }
                 }
 
-
-
-                console.log($scope.storage.savedCities);
-
-
-
                 $scope.map = {
                   center: {
                     latitude: location[0].geometry.location.lat(),
                     longitude: location[0].geometry.location.lng()
                    }
                 };
+
                 $scope.coords = {
                   latitude: location[0].geometry.location.lat(),
                   longitude: location[0].geometry.location.lng()
@@ -103,8 +99,7 @@
          scrollwheel: false
        }
      });
+     
      $scope.storage = $localStorage;
-
-     console.log($scope.storage.savedCities);
 
  }]);
