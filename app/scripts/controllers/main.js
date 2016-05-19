@@ -9,7 +9,7 @@
  */
 
  angular.module('angularTestApp')
- .controller('MainCtrl', ['$scope', '$log', 'uiGmapGoogleMapApi', 'current', '$localStorage', function ($scope, $log, GoogleMapApi, current, $localStorage) {
+ .controller('MainCtrl', ['$scope', '$log', 'uiGmapGoogleMapApi', /*'current',*/ '$localStorage', function ($scope, $log, GoogleMapApi, /*current,*/ $localStorage) {
      angular.extend($scope, {
        map: {
          center: {
@@ -33,9 +33,9 @@
 
              $scope.addPlaces = function(){
 
-               $scope.placesFound = current.query({
-                  placeID: $scope.placesID
-                });
+              //  $scope.placesFound = current.query({
+              //     placeID: $scope.placesID
+              //   });
 
                 var placeData = {
                   'name': location[0].name,
@@ -51,12 +51,12 @@
                 var save = true; // initialize the save decision variable.
                     // use this loop to check if we've already saved the city.
                 for (var i = 0; i < $localStorage.savedCities.length; i++){
-                    if ($localStorage.savedCities[i].name === placeData.name){
+                    if ($localStorage.savedCities[i].name == placeData.name){
                     //this is a duplicate, so don't save
                     save = false;
                     }
                   }
-                if (save === true){
+                if (save == true){
                     $localStorage.savedCities.push(placeData);
                 } else {
                     console.log('city already saved');
