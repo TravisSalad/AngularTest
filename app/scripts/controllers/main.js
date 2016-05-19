@@ -16,7 +16,7 @@
            latitude: 47.6062095,
            longitude: -122.3320708
          },
-         zoom: 12
+         zoom: 8
        },
        coords: {
          latitude: {},
@@ -63,13 +63,6 @@
                     }
                 }
 
-                $scope.map = {
-                  center: {
-                    latitude: location[0].geometry.location.lat(),
-                    longitude: location[0].geometry.location.lng()
-                   }
-                };
-
                 $scope.coords = {
                   latitude: location[0].geometry.location.lat(),
                   longitude: location[0].geometry.location.lng()
@@ -83,7 +76,6 @@
                     latitude: location[0].geometry.location.lat(),
                     longitude: location[0].geometry.location.lng()
                    },
-                  zoom: 12
                 };
                 $scope.coords = {
                   latitude: location[0].geometry.location.lat(),
@@ -99,7 +91,7 @@
          scrollwheel: false
        }
      });
-     
+
      $scope.storage = $localStorage;
 
  }]);
