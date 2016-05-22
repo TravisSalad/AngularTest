@@ -14,6 +14,10 @@
           <p ng-repeat="city in storage.savedCities">{{city.name}}</p>
         </div>
 
+        <div ng-repeat="city in storage.savedCities">
+          <ui-gmap-marker idKey="1" coords="cooords" events="searchbox.events"></ui-gmap-marker>
+        </div>
+
 
         <script id="searchbox.tpl.html" type="text/ng-template">
           <input type="text" placeholder="Search by City, State, Location..." style="width: 70%;">

@@ -35,8 +35,6 @@
 
              $scope.addPlaces = function(city){
 
-               console.log(city);
-
                var name = city.result.name;
                var lat = city.result.geometry.location.lat;
                var lng = city.result.geometry.location.lng;
@@ -46,10 +44,6 @@
                   'lat': lat,
                   'lng': lng
                 };
-
-                console.log(name);
-                console.log(lat);
-                console.log(lng);
 
                 if (!$localStorage.savedCities){
                     $localStorage.savedCities = [placeData];
@@ -72,8 +66,8 @@
                 }
 
                 $scope.coords = {
-                  latitude: location[0].geometry.location.lat(),
-                  longitude: location[0].geometry.location.lng()
+                  latitude: lat,
+                  longitude: lng
                 };
               };
 
