@@ -7,21 +7,13 @@
 
         <div id="search" ng-model="location"></div><br>
         <button class="btn btn-primary btn-find" ng-click="findPlaces()">Search for places to visit</button><br><br>
-        <button class="btn btn-primary btn-find" ng-click="addPlaces()">Add place to bucket list</button><br><br>
-        <div class="saved-places text-left">
-          <p>{{storage.savedCities[0].name}}</p>
-          <p>{{storage.savedCities[1].name}}</p>
-          <p>{{storage.savedCities[2].name}}</p>
-          <p>{{storage.savedCities[3].name}}</p>
-          <p>{{storage.savedCities[4].name}}</p>
+        <button class="btn btn-primary btn-find" ng-click="addPlaces(currentPlace)">Add place to bucket list</button><br><br>
 
-          <!-- <p>{{placesFound.result.geometry.location.lng}}</p>
-          <p>{{placesFound.result.name}}</p>
-          <p>{{placesFound.result.formatted_address}}</p> -->
-          <!-- <ul class="text-left" ng-repeat"location in storage.savedCities">
-            <li>{{storage.savedCities}}</li>
-          </ul> -->
+
+        <div class="saved-places text-left">
+          <p ng-repeat="city in storage.savedCities">{{city.name}}</p>
         </div>
+
 
         <script id="searchbox.tpl.html" type="text/ng-template">
           <input type="text" placeholder="Search by City, State, Location..." style="width: 70%;">

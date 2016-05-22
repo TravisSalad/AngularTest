@@ -9,7 +9,7 @@
  */
 
  angular.module('angularTestApp')
- .controller('MainCtrl', ['$scope', '$log', 'uiGmapGoogleMapApi', /*'current',*/ '$localStorage', function ($scope, $log, GoogleMapApi, /*current,*/ $localStorage) {
+ .controller('MainCtrl', ['$scope', '$log', 'uiGmapGoogleMapApi', 'current', '$localStorage', function ($scope, $log, GoogleMapApi, current, $localStorage) {
      angular.extend($scope, {
        map: {
          center: {
@@ -29,18 +29,27 @@
              var location = searchBox.getPlaces();
              $scope.placesID = location[0].place_id;
 
-             $scope.addPlaces = function(){
+             $scope.currentPlace = current.query({
+               placeID: location[0].place_id
+             });
 
+             $scope.addPlaces = function(city){
 
-               var name = location[0].name;
-               var lat = location[0].geometry.location.lat();
-               var lng = location[0].geometry.location.lng();
+               console.log(city);
+
+               var name = city.result.name;
+               var lat = city.result.geometry.location.lat;
+               var lng = city.result.geometry.location.lng;
 
                var placeData = {
                   'name': name,
                   'lat': lat,
                   'lng': lng
                 };
+
+                console.log(name);
+                console.log(lat);
+                console.log(lng);
 
                 if (!$localStorage.savedCities){
                     $localStorage.savedCities = [placeData];
@@ -50,12 +59,12 @@
                 var save = true; // initialize the save decision variable.
                     // use this loop to check if we've already saved the city.
                 for (var i = 0; i < $localStorage.savedCities.length; i++){
-                    if ($localStorage.savedCities[i].name == placeData.name){
+                    if ($localStorage.savedCities[i].name === placeData.name){
                     //this is a duplicate, so don't save
                     save = false;
                     }
                   }
-                if (save == true){
+                if (save === true){
                     $localStorage.savedCities.push(placeData);
                 } else {
                     console.log('city already saved');
@@ -92,6 +101,5 @@
      });
 
      $scope.storage = $localStorage;
-     console.log($scope.storage);
 
  }]);
