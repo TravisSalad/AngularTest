@@ -5,12 +5,22 @@ body {
 
 .content {
   padding: 0;
-  h1{
+  h1 {
     padding: 20px;
   } .saved-places {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
+  } .place-title {
+    font-size: 1.5em;
+    &:hover {
+      text-decoration: none;
+    }
+
+  } .place-details {
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 

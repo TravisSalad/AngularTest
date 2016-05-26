@@ -12,7 +12,8 @@
 
         <div class="saved-places text-left">
           <p ng-repeat="city in storage.savedCities">
-            <a target="_blank" href="{{city.url}}">{{city.name}}</a>
+            <a class="place-title" target="_blank" href="{{city.url}}">{{city.name}}</a>
+            <button class="btn btn-sm btn-info" href="" ng-click="removePlace(storage.savedCities)">delete</button>
           </p>
         </div>
 

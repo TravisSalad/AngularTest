@@ -80,6 +80,7 @@
               };
 
 
+
             }
           }
         },
@@ -90,6 +91,9 @@
 
      $scope.storage = $localStorage;
 
-
+     $scope.removePlace = function(place){
+       var index = $scope.storage.savedCities.indexOf(place);
+       $scope.storage.savedCities.splice(index, 1);
+     };
 
  }]);
