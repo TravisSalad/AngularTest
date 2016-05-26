@@ -33,8 +33,10 @@
                var name = city.result.name;
                var lat = city.result.geometry.location.lat;
                var lng = city.result.geometry.location.lng;
+               var url = city.result.url;
 
                var placeData = {
+                  'url': url,
                   'name': name,
                   'coords': {
                     latitude: lat,
