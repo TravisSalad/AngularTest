@@ -18,16 +18,11 @@
          },
          zoom: 8
        },
-       coords: {
-         latitude: {},
-         longitude: {}
-       },
        searchbox: {
          template:'searchbox.tpl.html',
          events:{
              places_changed: function(searchBox) {
              var location = searchBox.getPlaces();
-             $scope.placesID = location[0].place_id;
 
              $scope.currentPlace = current.query({
                placeID: location[0].place_id
@@ -41,8 +36,10 @@
 
                var placeData = {
                   'name': name,
-                  'lat': lat,
-                  'lng': lng
+                  'coords': {
+                    latitude: lat,
+                    longitude: lng
+                  }
                 };
 
                 if (!$localStorage.savedCities){
@@ -64,11 +61,6 @@
                     console.log('city already saved');
                     }
                 }
-
-                $scope.coords = {
-                  latitude: lat,
-                  longitude: lng
-                };
               };
 
 
@@ -95,5 +87,7 @@
      });
 
      $scope.storage = $localStorage;
+
+
 
  }]);

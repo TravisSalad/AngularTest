@@ -1,4 +1,4 @@
-<div class="mainn" ng-app="angularTestApp" ng-controller="MainCtrl">
+<div class="bucket" ng-app="angularTestApp" ng-controller="MainCtrl">
 
     <div class="col-sm-4 text-center content">
         <h1>Seattle, WA</h1>
@@ -11,7 +11,9 @@
 
 
         <div class="saved-places text-left">
-          <p ng-repeat="city in storage.savedCities">{{city.name}}</p>
+          <p ng-repeat="city in storage.savedCities">
+            <a href="">{{city.name}}</a>
+          </p>
         </div>
 
 
@@ -26,6 +28,7 @@
         <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
           <ui-gmap-search-box parentdiv="'search'" template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
           <ui-gmap-marker idKey="1" coords="coords" events="searchbox.events"></ui-gmap-marker>
+          <ui-gmap-marker ng-repeat="city in storage.savedCities" idKey='2' coords='city.coords'></ui-gmap-marker>
         </ui-gmap-google-map>
       </div>
     </div>
