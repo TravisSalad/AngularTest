@@ -61,6 +61,7 @@
                     $localStorage.savedCities.push(placeData);
                 } else {
                     console.log('city already saved');
+                    alert('city already saved');
                     }
                 }
               };
@@ -94,7 +95,7 @@
            latitude: latitude,
            longitude: longitude
          },
-          zoom: 12
+          zoom: 14
        };
      };
 
