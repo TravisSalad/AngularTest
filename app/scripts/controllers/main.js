@@ -65,7 +65,6 @@
                 }
               };
 
-
               $scope.findPlaces = function(){
                 $scope.map = {
                   center: {
@@ -79,8 +78,6 @@
                 };
               };
 
-
-
             }
           }
         },
@@ -90,6 +87,16 @@
      });
 
      $scope.storage = $localStorage;
+
+     $scope.refocus = function(latitude, longitude) {
+       $scope.map = {
+         center: {
+           latitude: latitude,
+           longitude: longitude
+         },
+          zoom: 12
+       };
+     };
 
      $scope.removePlace = function(place){
        var index = $scope.storage.savedCities.indexOf(place);

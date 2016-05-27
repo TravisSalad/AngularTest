@@ -9,11 +9,13 @@
         <button class="btn btn-primary btn-find" ng-click="findPlaces()">Search for places to visit</button><br><br>
         <button class="btn btn-primary btn-find" ng-click="addPlaces(currentPlace)">Add place to bucket list</button><br><br>
 
+        <hr>
 
         <div class="saved-places text-left">
           <p ng-repeat="city in storage.savedCities">
-            <a class="place-title" target="_blank" href="{{city.url}}">{{city.name}}</a>
-            <button class="btn btn-sm btn-info" href="" ng-click="removePlace(storage.savedCities)">delete</button>
+            <a class="place-title" href="" ng-click="refocus(city.coords.latitude, city.coords.longitude)">{{city.name}}</a><br>
+            <a target="_blank" href="{{city.url}}">more info</a><br>
+            <a href="" ng-click="removePlace(city)">delete</a>
           </p>
         </div>
 

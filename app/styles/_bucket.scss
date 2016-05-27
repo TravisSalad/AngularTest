@@ -13,11 +13,7 @@ body {
     margin-right: auto;
   } .place-title {
     font-size: 1.5em;
-    &:hover {
-      text-decoration: none;
-    }
-
-  } .place-details {
+    border-bottom: 1px solid white;
     &:hover {
       text-decoration: none;
     }
