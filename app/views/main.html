@@ -14,8 +14,8 @@
         <div style="overflow:scroll; height:400px;" class="saved-places text-left">
           <p ng-repeat="city in storage.savedCities">
             <a class="place-title" href="" ng-click="refocus(city.coords.latitude, city.coords.longitude)">{{city.name}}</a><br>
-            <a class="btn btn-primary" target="_blank" href="{{city.url}}">more info</a>
-            <a class="btn btn-primary" ng-click="removePlace(city)">delete</a>
+            <a target="_blank" href="{{city.url}}">more info</a> |
+            <a ng-click="removePlace(city)" href="">delete</a>
           </p>
         </div>
 
