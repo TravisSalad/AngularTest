@@ -1,0 +1,42 @@
+<div class="new" ng-app="angularTestApp" ng-controller="NewCtrl">
+
+    <div class="col-sm-5 content">
+
+      <input class="bucket-input" placeholder="Add Map Title" style="width: 80%;"></input>
+      <button class="btn btn-primary pull-right" style="width: 20%;">Save Map</button>
+
+
+      <div id="search" ng-model="location"></div>
+      <button class="btn btn-primary btn-find" ng-click="findPlaces(currentPlace)">Search for places to visit</button>
+      <button class="btn btn-primary btn-find" ng-click="addPlaces(currentPlace)">Add place to bucket list</button>
+      <script id="searchbox.tpl.html" type="text/ng-template">
+        <input class="bucket-input" type="text" placeholder="Search for places to visit" style="width: 100%;">
+      </script>
+
+        <hr>
+
+
+      <div class="saved-places pull-left">
+        <p ng-repeat="city in storage.savedCities">
+          <a class="place-title" href="" ng-click="refocus(city.coords.latitude, city.coords.longitude)">{{city.name}}</a><br>
+          <a target="_blank" href="{{city.url}}">more info</a> |
+          <a ng-click="removePlace(city)" href="">delete</a>
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="col-sm-7 map-canvas">
+      <div cass="map-container">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+          <ui-gmap-search-box parentdiv="'search'" template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
+          <ui-gmap-search-box parentdiv="'destination'" template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
+          <ui-gmap-marker idKey="1" coords="coords" events="searchbox.events"></ui-gmap-marker>
+          <ui-gmap-marker ng-repeat="city in storage.savedCities" idKey='2' coords='city.coords'></ui-gmap-marker>
+        </ui-gmap-google-map>
+      </div>
+    </div>
+
+
+</div>

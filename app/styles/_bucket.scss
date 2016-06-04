@@ -4,7 +4,13 @@ body {
 }
 
 .content {
-  padding: 0;
+  margin-top: 80px;
+  .bucket-input {
+    font-size: 1.5em;
+    height: 34px;
+  } #search {
+    margin-top: 15px;
+  }
   h1 {
     padding: 20px;
   } .saved-places {
@@ -22,10 +28,15 @@ body {
 
 .container,
 .view-container,
-.bucket,
-.app-container,
-.map-canvas {
+.new,
+.app-container{
   height: 100%;
+  .map-canvas {
+    height: 100%;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 .angular-google-map-container {
@@ -33,7 +44,8 @@ body {
 }
 
 .btn-find {
-  width: 70%;
+  margin: 5px 0 0 1px;
+  width: 49%;
 }
 
 li {

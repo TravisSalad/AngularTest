@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc function
- * @name angularTestApp.controller:MainCtrl
+ * @name angularTestApp.controller:NewCtrl
  * @description
- * # MainCtrl
+ * # NewCtrl
  * Controller of the angularTestApp
  */
 
  angular.module('angularTestApp')
- .controller('MainCtrl', ['$scope', '$log', 'uiGmapGoogleMapApi', 'current', '$localStorage', function ($scope, $log, GoogleMapApi, current, $localStorage) {
+ .controller('NewCtrl', ['$scope', '$log', 'uiGmapGoogleMapApi', 'current', '$localStorage', function ($scope, $log, GoogleMapApi, current, $localStorage) {
      angular.extend($scope, {
        map: {
          center: {
@@ -27,6 +27,23 @@
              $scope.currentPlace = current.query({
                placeID: location[0].place_id
              });
+
+             $scope.findPlaces = function(city){
+
+               var lat = city.result.geometry.location.lat;
+               var lng = city.result.geometry.location.lng;
+
+               $scope.map = {
+                 center: {
+                   latitude: lat,
+                   longitude: lng
+                  },
+               };
+               $scope.coords = {
+                 latitude: lat,
+                 longitude: lng
+               };
+             };
 
              $scope.addPlaces = function(city){
 
@@ -64,19 +81,6 @@
                     alert('city already saved');
                     }
                 }
-              };
-
-              $scope.findPlaces = function(){
-                $scope.map = {
-                  center: {
-                    latitude: location[0].geometry.location.lat(),
-                    longitude: location[0].geometry.location.lng()
-                   },
-                };
-                $scope.coords = {
-                  latitude: location[0].geometry.location.lat(),
-                  longitude: location[0].geometry.location.lng()
-                };
               };
 
             }
