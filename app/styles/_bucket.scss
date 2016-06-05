@@ -5,6 +5,7 @@ body {
 
 .content {
   margin-top: 80px;
+  z-index: 10;
   .bucket-input {
     font-size: 1.5em;
     height: 34px;
@@ -26,6 +27,12 @@ body {
   }
 }
 
+@media screen and (max-width: 767px) {
+    .content {
+        width:100%;
+    }
+}
+
 .container,
 .view-container,
 .new,
@@ -36,6 +43,10 @@ body {
     position: fixed;
     right: 0;
     bottom: 0;
+  } @media screen and (max-width: 767px) {
+    .hidden-xs {
+        display:none;
+    }
   }
 }
 

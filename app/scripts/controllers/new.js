@@ -107,5 +107,5 @@
        var index = $scope.storage.savedCities.indexOf(place);
        $scope.storage.savedCities.splice(index, 1);
      };
-
+     
  }]);
