@@ -5,10 +5,13 @@
     .btn-search {
         display:none;
     }
-  } .bucket-input {
+  }.bucket-input {
     font-size: 1.5em;
     height: 35px;
-  } #search {
+  }.bucket-title {
+    padding: 0;
+    margin: 0;
+  }#search {
     margin-top: 15px;
   }
   h1 {

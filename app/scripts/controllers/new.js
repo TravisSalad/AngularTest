@@ -53,8 +53,8 @@
                var url = city.result.url;
 
                var placeData = {
-                  'url': url,
                   'name': name,
+                  'url': url,
                   'coords': {
                     latitude: lat,
                     longitude: lng
@@ -90,6 +90,7 @@
          scrollwheel: false
        }
      });
+
 
      $scope.storage = $localStorage;
 

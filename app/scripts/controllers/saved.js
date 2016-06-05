@@ -8,10 +8,9 @@
  * Controller of the angularTestApp
  */
 angular.module('angularTestApp')
-  .controller('SavedCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('SavedCtrl', ['$scope', '$localStorage', function ($scope, $localStorage) {
+    angular.extend($scope, {
+      
+    });
+    $scope.storage = $localStorage;
+  }]);
