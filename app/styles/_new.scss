@@ -5,8 +5,12 @@ body {
 
 .content {
   margin-top: 80px;
-  z-index: 10;
-  .bucket-input {
+  @media screen and (max-width: 767px) {
+    .hidden-xs,
+    .btn-search {
+        display:none;
+    }
+  } .bucket-input {
     font-size: 1.5em;
     height: 34px;
   } #search {
@@ -43,10 +47,6 @@ body {
     position: fixed;
     right: 0;
     bottom: 0;
-  } @media screen and (max-width: 767px) {
-    .hidden-xs {
-        display:none;
-    }
   }
 }
 
@@ -56,8 +56,10 @@ body {
 
 .btn-find {
   margin: 5px 0 0 1px;
-  width: 49%;
+  width: 100%;
 }
+
+
 
 li {
   list-style: none;
