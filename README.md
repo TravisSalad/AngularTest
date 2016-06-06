@@ -1,20 +1,26 @@
-# Bucket
+<h1>Bucket</h1>
 http://travissalad.com/bucket
 
-##About
-Allows users to create maps for destinations they want to go to and add places to visit while travelling to each destination
+<h3>About</h3>
+<p>Allows users to create maps for destinations they want to go to and add places to visit while travelling to each</p> destination
 
-##API's used
-*Angular Google Maps.
-*Google Places with Autocomplete.
+<h3>API's used</h3>
+<ul>
+  <li>Angular Google Maps.</li>
+  <li>Google Places with Autocomplete.</li>
+</ul>
 
-##Coming soon
-*Ability to save maps and add multiple maps.
-*User authentication/login.
+<h3>Coming soon</h3>
+<ul>
+  <li>Ability to save maps and add multiple maps.</li>
+  <li>User authentication/login.</li>
+</ul>
 
-##Wishlist
-*Allow users to share maps and allow friends to add places.
-*Add day planner so users can plan out each day of their trip.
-*Add transportation options.
+<h3>Wishlist</h3>
+<ul>
+  <li>Allow users to share maps and allow friends to add places.</li>
+  <li>Add day planner so users can plan out each day of their trip.</li>
+  <li>Add transportation options.</li>
+</ul>
 
 
