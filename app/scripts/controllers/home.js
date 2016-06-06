@@ -10,7 +10,7 @@
 
 
 angular.module('angularTestApp')
-  .controller('HomeCtrl', ['$scope', '$log', 'uiGmapGoogleMapApi', function($scope, $log, GoogleMapApi){
+  .controller('HomeCtrl', ['$scope', function($scope){
     angular.extend($scope, {
       map: {
         center: {

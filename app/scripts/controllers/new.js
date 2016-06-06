@@ -11,6 +11,8 @@
  angular.module('angularTestApp')
  .controller('NewCtrl', ['$scope', '$log', 'uiGmapGoogleMapApi', 'current', '$localStorage', function ($scope, $log, GoogleMapApi, current, $localStorage) {
      angular.extend($scope, {
+
+       //Create map and initial center, zoom
        map: {
          center: {
            latitude: 47.6062095,
@@ -18,16 +20,19 @@
          },
          zoom: 8
        },
+       //create searchbox functionality
        searchbox: {
          template:'searchbox.tpl.html',
          events:{
+            //get searchbox information, pull ID to send GET request to receive full JSON response in current service
              places_changed: function(searchBox) {
              var location = searchBox.getPlaces();
-
+ 
              $scope.currentPlace = current.query({
                placeID: location[0].place_id
              });
 
+             //Search functionality
              $scope.findPlaces = function(city){
 
                var lat = city.result.geometry.location.lat;
@@ -45,12 +50,14 @@
                };
              };
 
+             //save function for adding places to bucket list
              $scope.addPlaces = function(city){
 
                var name = city.result.name;
                var lat = city.result.geometry.location.lat;
                var lng = city.result.geometry.location.lng;
                var url = city.result.url;
+               var alert;
 
                var placeData = {
                   'name': name,
@@ -77,7 +84,6 @@
                 if (save === true){
                     $localStorage.savedCities.push(placeData);
                 } else {
-                    console.log('city already saved');
                     alert('city already saved');
                     }
                 }
@@ -91,9 +97,9 @@
        }
      });
 
-
+     //set storage to local storage
      $scope.storage = $localStorage;
-
+     //move center of map to saved location on click
      $scope.refocus = function(latitude, longitude) {
        $scope.map = {
          center: {
@@ -103,7 +109,7 @@
           zoom: 14
        };
      };
-
+     //delete function to remove place from bucket list
      $scope.removePlace = function(place){
        var index = $scope.storage.savedCities.indexOf(place);
        $scope.storage.savedCities.splice(index, 1);
