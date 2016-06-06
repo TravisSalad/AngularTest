@@ -18,6 +18,6 @@ angular.module('angularTestApp')
           placeID: 'ChIJyU1YTzwC54kRj4V6zn6M68s',
         },
       isArray: false
-      }
-    });
+    }
   });
+});
