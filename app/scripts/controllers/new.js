@@ -27,7 +27,7 @@
             //get searchbox information, pull ID to send GET request to receive full JSON response in current service
              places_changed: function(searchBox) {
              var location = searchBox.getPlaces();
- 
+
              $scope.currentPlace = current.query({
                placeID: location[0].place_id
              });
@@ -58,6 +58,7 @@
                var lng = city.result.geometry.location.lng;
                var url = city.result.url;
                var alert;
+
 
                var placeData = {
                   'name': name,
@@ -97,6 +98,9 @@
        }
      });
 
+
+
+
      //set storage to local storage
      $scope.storage = $localStorage;
      //move center of map to saved location on click
@@ -109,10 +113,49 @@
           zoom: 14
        };
      };
+
+
+
+
      //delete function to remove place from bucket list
      $scope.removePlace = function(place){
        var index = $scope.storage.savedCities.indexOf(place);
        $scope.storage.savedCities.splice(index, 1);
      };
+
+
+
+
+     //saveMap function so far just saves name, need to create functionality
+     $scope.saveMap = function(){
+
+       var title = $scope.title;
+       var saveTitle = {
+         'title': title
+       };
+
+       if (!$localStorage.savedMaps){
+           $localStorage.savedMaps = [saveTitle];
+       } else {
+           // we have already saved some cities.
+           // check to make sure we haven't already saved the current city.
+       var save = true; // initialize the save decision variable.
+           // use this loop to check if we've already saved the city.
+       for (var i = 0; i < $localStorage.savedMaps.length; i++){
+           if ($localStorage.savedMaps[i].title === saveTitle.title){
+           //this is a duplicate, so don't save
+           save = false;
+           }
+         }
+       if (save === true){
+           $localStorage.savedMaps.push(saveTitle);
+       } else {
+           alert('city already saved');
+           }
+       }
+     };
+     //end save map
+
+
 
  }]);
