@@ -150,7 +150,7 @@
        if (save === true){
            $localStorage.savedMaps.push(saveTitle);
        } else {
-           alert('city already saved');
+           alert('map already saved');
            }
        }
      };
